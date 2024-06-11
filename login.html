@@ -9,8 +9,24 @@
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- css stylesheet -->
     <link rel="stylesheet" href="/Users/masterpixel/Documents/login_styles.css">
+    <style>
+        .video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+        
+    </style>
 </head>
 <body>
+    <video autoplay muted loop class="video-background">
+        <source src="/Users/masterpixel/Documents/brain4.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
 
     <div class="container" id="container">
         <div class="form-container sign-up-container">
