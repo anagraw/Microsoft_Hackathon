@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import SignInUp from "./pages/SignInUp";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
+import Diagnostic from "./pages/Diagnostic";
 
 export default function App() {
 	return (
@@ -23,6 +24,14 @@ export default function App() {
 				<Route
 					path='/dashboard'
 					element={<Home />}
+				/>
+				<Route
+					path='/'
+					element={<Home />}
+				/>
+				<Route
+					path='/diagnostic'
+					element={<Diagnostic />}
 				/>
 			</Routes>
 		</BrowserRouter>
