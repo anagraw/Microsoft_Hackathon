@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-}
 .background-video {
     position: fixed;
     top: 0;
@@ -29,9 +24,12 @@
     --grad-clr2: #243B55;
 }
 
-body {
+.div_a {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
     height: 100vh;
-    background: #f6f5f7;
+    background: transparent;
     display: grid;
     place-content: center;
     font-family: 'Poppins', sans-serif;
@@ -64,7 +62,7 @@ body {
     z-index: 2;
 
 }
-form {
+.form_a {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -72,7 +70,7 @@ form {
     justify-content: center;
     padding: 0px 3rem;
 }
-h1{
+.head_1{
     color: var(--grad-clr1);
 }
 .social-container{
@@ -88,7 +86,7 @@ h1{
     height: 2.4rem;
     width: 2.4rem;
 }
-span{
+.span_a{
     font-size:  0.8rem;
 }
 .infield{
@@ -97,14 +95,14 @@ span{
     width: 100%;
 
 }
-input{
+.input_a{
     width: 100%;
     padding: 12px 15px;
     background-color: #f3f3f3;
     border: none;
     outline: none;
 }
-label{
+.label_a{
     position: absolute;
     left: 50%;
     top: 100%;
@@ -115,10 +113,10 @@ label{
     transform: 0.3s;
 
 }
-input:focus~label{
+.input_a:focus~.label_a{
     width: 100%;
 }
-a{
+.a_a{
     color: #333;
     font-size: 14px;
     text-decoration: none;
@@ -128,7 +126,7 @@ a.forgot{
     padding-bottom: 3px;
     border-bottom: 2px solid #eee;
 }
-button{
+.button_a{
     border-radius: 20px;
     border: 1px solid var(--grad-clr1);
     background-color: var(--grad-clr2);
@@ -203,7 +201,7 @@ button{
 .overlay-panel h1{
     color: #fff;
 }
-p{
+.p_a{
     font-size: 14px;
     font-weight: 300;
     line-height: 20px;

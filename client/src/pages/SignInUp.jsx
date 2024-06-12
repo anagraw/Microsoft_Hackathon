@@ -82,149 +82,161 @@ function SignInUp() {
 	};
 	return (
 		<>
-			<div className='background-video'>
-				<video
-					autoPlay
-					loop
-					muted
-					src={videobg}
-				/>
-			</div>
+			<div className='div_a'>
+				<div className='background-video'>
+					<video
+						className='video'
+						autoPlay
+						loop
+						muted
+						src={videobg}
+					/>
+				</div>
 
-			<div
-				className={`container ${isActive ? "right-panel-active" : ""}`}
-				id='container'>
-				<div className='form-container sign-up-container'>
-					<form
-						action='#'
-						onSubmit={signupHandler}>
-						<h1>Create Account</h1>
-						<div className='social-container'>
-							<a
-								href='#'
-								className='social'>
-								<i className='fab fa-facebook-f'></i>
-							</a>
-							<a
-								href='#'
-								className='social'>
-								<button
-									onClick={LoginWithGoogle}
-									style={{ border: "none" }}
-									className='fab fa-google-plus-g'></button>
-							</a>
-							<a
-								href='#'
-								className='social'>
-								<i className='fab fa-linkedin-in'></i>
-							</a>
-						</div>
-						<span>or use your email for registration</span>
-						<div className='infield'>
-							<input
-								type='text'
-								placeholder='Name'
-								onChange={(e) => setName(e.target.value)}
-							/>
-							<label></label>
-						</div>
-						<div className='infield'>
-							<input
-								type='email'
-								placeholder='Email'
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							<label></label>
-						</div>
-						<div className='infield'>
-							<input
-								type='password'
-								placeholder='Password'
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-							<label></label>
-						</div>
-						<button className='btn'>Sign Up</button>
-					</form>
-				</div>
-				<div className='form-container sign-in-container'>
-					<form
-						action='#'
-						onSubmit={signinHandler}>
-						<h1>Sign in</h1>
-						<div className='social-container'>
-							<a
-								href='#'
-								className='social'>
-								<i className='fab fa-facebook-f'></i>
-							</a>
-							<a
-								href='#'
-								className='social'>
-								<button
-									onClick={LoginWithGoogle}
-									style={{ border: "none" }}
-									className='fab fa-google-plus-g'></button>
-							</a>
-							<a
-								href='#'
-								className='social'>
-								<i className='fab fa-linkedin-in'></i>
-							</a>
-						</div>
-						<span>or use your account</span>
-						<div className='infield'>
-							<input
-								type='email'
-								placeholder='Email'
-								name='email'
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-							<label></label>
-						</div>
-						<div className='infield'>
-							<input
-								type='password'
-								placeholder='Password'
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-							<label></label>
-						</div>
-						<a
-							href='#'
-							className='forgot'>
-							Forgot your password?
-						</a>
-						<button className='btn'>Sign In</button>
-					</form>
-				</div>
 				<div
-					className='overlay-container'
-					id='overlayCon'>
-					<div className='overlay'>
-						<div className='overlay-panel overlay-left'>
-							<h1>Welcome Back!</h1>
-							<p>
-								To keep connected with us please login with your personal info
-							</p>
-							{/* <button>Sign In</button> */}
-						</div>
-						<div className='overlay-panel overlay-right'>
-							<h1>Hello, Friend!</h1>
-							<p>Enter your personal details and start journey with us</p>
-							{/* <button>Sign Up</button> */}
-						</div>
+					className={`container ${isActive ? "right-panel-active" : ""}`}
+					id='container'>
+					<div className='form-container sign-up-container'>
+						<form
+							className='form_a'
+							action='#'
+							onSubmit={signupHandler}>
+							<h1 className='head_1'>Create Account</h1>
+							<div className='social-container'>
+								<a
+									href='#'
+									className='social a_a'>
+									<i className='fab fa-facebook-f'></i>
+								</a>
+								<a
+									href='#'
+									className='social a_a'>
+									<button
+										onClick={LoginWithGoogle}
+										style={{ border: "none" }}
+										className='fab fa-google-plus-g'></button>
+								</a>
+								<a
+									href='#'
+									className='social a_a'>
+									<i className='fab fa-linkedin-in'></i>
+								</a>
+							</div>
+							<span className='span_a'>or use your email for registration</span>
+							<div className='infield'>
+								<input
+									className='input_a'
+									type='text'
+									placeholder='Name'
+									onChange={(e) => setName(e.target.value)}
+								/>
+								<label className='label_a'></label>
+							</div>
+							<div className='infield'>
+								<input
+									className='input_a'
+									type='email'
+									placeholder='Email'
+									onChange={(e) => setEmail(e.target.value)}
+								/>
+								<label className='label_a'></label>
+							</div>
+							<div className='infield'>
+								<input
+									className='input_a'
+									type='password'
+									placeholder='Password'
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+								<label className='label_a'></label>
+							</div>
+							<button className='btn button_a'>Sign Up</button>
+						</form>
 					</div>
-					<button
-						id='overlayBtn'
-						onClick={handleClick}
-						className={
-							isActive
-								? "btnScaled overlay-panel overlay-left btn"
-								: "overlay-panel overlay-left btn"
-						}>
-						{isActive ? "SignIn" : "SignUp"}
-					</button>
+					<div className='form-container sign-in-container'>
+						<form
+							className='form_a'
+							action='#'
+							onSubmit={signinHandler}>
+							<h1 className='head_1'>Sign in</h1>
+							<div className='social-container'>
+								<a
+									href='#'
+									className='social a_a'>
+									<i className='fab fa-facebook-f'></i>
+								</a>
+								<a
+									href='#'
+									className='social a_a'>
+									<button
+										onClick={LoginWithGoogle}
+										style={{ border: "none" }}
+										className='fab fa-google-plus-g'></button>
+								</a>
+								<a
+									href='#'
+									className='social a_a'>
+									<i className='fab fa-linkedin-in'></i>
+								</a>
+							</div>
+							<span className='span_a'>or use your account</span>
+							<div className='infield'>
+								<input
+									className='input_a'
+									type='email'
+									placeholder='Email'
+									name='email'
+									onChange={(e) => setEmail(e.target.value)}
+								/>
+								<label className='label_a'></label>
+							</div>
+							<div className='infield'>
+								<input
+									className='input_a'
+									type='password'
+									placeholder='Password'
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+								<label className='label_a'></label>
+							</div>
+							<a
+								href='#'
+								className='forgot a_a'>
+								Forgot your password?
+							</a>
+							<button className='btn button_a'>Sign In</button>
+						</form>
+					</div>
+					<div
+						className='overlay-container'
+						id='overlayCon'>
+						<div className='overlay'>
+							<div className='overlay-panel overlay-left'>
+								<h1 className='head_1'>Welcome Back!</h1>
+								<p className='p_a'>
+									To keep connected with us please login with your personal info
+								</p>
+								{/* <button>Sign In</button> */}
+							</div>
+							<div className='overlay-panel overlay-right'>
+								<h1 className='head_1'>Hello, Friend!</h1>
+								<p className='p_a'>
+									Enter your personal details and start journey with us
+								</p>
+								{/* <button>Sign Up</button> */}
+							</div>
+						</div>
+						<button
+							id='overlayBtn'
+							onClick={handleClick}
+							className={
+								isActive
+									? "btnScaled overlay-panel overlay-left btn button_a"
+									: "overlay-panel overlay-left btn button_a"
+							}>
+							{isActive ? "SignIn" : "SignUp"}
+						</button>
+					</div>
 				</div>
 			</div>
 		</>
