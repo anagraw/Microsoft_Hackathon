@@ -127,7 +127,7 @@ a.forgot{
     border-bottom: 2px solid #eee;
 }
 .button_a{
-    border-radius: 20px;
+    border-radius: 10px;
     border: 1px solid var(--grad-clr1);
     background-color: var(--grad-clr2);
     color: #fff;
@@ -161,11 +161,11 @@ a.forgot{
     left: 50%;
     top: 300px;
     transform: translateX(-50%);
-    width: 7rem;
-    height: 30px;
+    width: 2rem;
+    height: 50px;
     border: 1px solid #fff;
     background: transparent;
-    border-radius: 1.3rem;
+    border-radius: 1rem;
 }
 .overlay {
     position: relative;

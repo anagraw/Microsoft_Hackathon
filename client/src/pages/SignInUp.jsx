@@ -231,8 +231,8 @@ function SignInUp() {
 							onClick={handleClick}
 							className={
 								isActive
-									? "btnScaled overlay-panel overlay-left btn button_a"
-									: "overlay-panel overlay-left btn button_a"
+									? "btnScaled button_a overlay-panel overlay-left"
+									: "overlay-panel button_a overlay-left"
 							}>
 							{isActive ? "SignIn" : "SignUp"}
 						</button>
