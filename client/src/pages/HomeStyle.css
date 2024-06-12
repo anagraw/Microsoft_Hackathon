@@ -1,0 +1,64 @@
+.overlay_home {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    /* background: transparent; */
+    background: rgba(0, 0, 0, 0.5);
+    z-index: -1;
+}
+.content_01 {
+    position: relative;
+    z-index: 1;
+}
+.card-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.card {
+    width: 300px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    transform: translateY(50px);
+    opacity: 0;
+}
+.card img {
+    width: 150%;
+    height: 300px;
+    object-fit: cover;
+}
+.card .content_01 {
+    display: none;
+    padding: 15px;
+}
+.card:hover .content_01 {
+    display: block;
+}
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+.intro {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
