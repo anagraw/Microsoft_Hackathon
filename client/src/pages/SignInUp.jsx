@@ -9,6 +9,8 @@ import {
 	GoogleAuthProvider,
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+
+import videobg from "../assets/vid.mp4";
 function SignInUp() {
 	const [isActive, setIsActive] = useState(false);
 	const handleClick = () => {
@@ -30,8 +32,10 @@ function SignInUp() {
 		console.log("signupHandler", email, password, name);
 
 		createUserWithEmailAndPassword(auth, email, password)
-			.then(() => {
-				console.log("User Created", email, password, name);
+			.then((res) => {
+				const token = res.user.accessToken;
+				localStorage.setItem("token", token);
+				// console.log("User Created", email, password, name);
 				navigate("/dashboard");
 			})
 			.catch((error) => {
@@ -42,12 +46,15 @@ function SignInUp() {
 		e.preventDefault();
 
 		if (!email || !password) {
-			console.log("Email and password are required or wrong email/password");
+			// console.log("Email and password are required or wrong email/password");
 			return;
 		}
 
 		signInWithEmailAndPassword(auth, email, password)
-			.then(() => {
+			.then((res) => {
+				// console.log("User Logged In", res.user.accessToken);
+				const token = res.user.accessToken;
+				localStorage.setItem("token", token);
 				navigate("/dashboard");
 			})
 			.catch((error) => {
@@ -62,7 +69,7 @@ function SignInUp() {
 				const credential = GoogleAuthProvider.credentialFromResult(result);
 				const token = credential.accessToken;
 				const user = result.user;
-				console.log("User", user);
+				localStorage.setItem("token", token);
 				navigate("/dashboard");
 			})
 			.catch((error) => {
@@ -75,17 +82,14 @@ function SignInUp() {
 	};
 	return (
 		<>
-			<video
-				className='myVideo'
-				autoPlay
-				muted
-				loop>
-				<source
-					src='client\src\assets\brain4.mp4'
-					type='video/mp4'
+			<div className='background-video'>
+				<video
+					autoPlay
+					loop
+					muted
+					src={videobg}
 				/>
-				Your browser does not support the video tag.
-			</video>
+			</div>
 
 			<div
 				className={`container ${isActive ? "right-panel-active" : ""}`}
@@ -157,7 +161,10 @@ function SignInUp() {
 							<a
 								href='#'
 								className='social'>
-								<i className='fab fa-google-plus-g'></i>
+								<button
+									onClick={LoginWithGoogle}
+									style={{ border: "none" }}
+									className='fab fa-google-plus-g'></button>
 							</a>
 							<a
 								href='#'
