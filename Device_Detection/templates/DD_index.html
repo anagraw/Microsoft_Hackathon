@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction</title>
+</head>
+<body>
+    <h1>Disease Prediction from Symptoms</h1>
+    <form action="/predict" method="post">
+        <label for="symptom1">Symptom 1:</label>
+        <select name="symptom1" id="symptom1">
+            <option value="">Select Symptom</option> <!-- Blank option -->
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="symptom2">Symptom 2:</label>
+        <select name="symptom2" id="symptom2">
+            <option value="">Select Symptom</option> <!-- Blank option -->
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="symptom3">Symptom 3:</label>
+        <select name="symptom3" id="symptom3">
+            <option value="">Select Symptom</option> <!-- Blank option -->
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="symptom4">Symptom 4:</label>
+        <select name="symptom4" id="symptom4">
+            <option value="">Select Symptom</option> <!-- Blank option -->
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <label for="symptom5">Symptom 5:</label>
+        <select name="symptom5" id="symptom5">
+            <option value="">Select Symptom</option> <!-- Blank option -->
+            {% for symptom in symptoms %}
+            <option value="{{ symptom }}">{{ symptom }}</option>
+            {% endfor %}
+        </select><br><br>
+        
+        <input type="submit" value="Predict">
+    </form>
+    <h2>{{ prediction_text }}</h2>
+</body>
+</html>
