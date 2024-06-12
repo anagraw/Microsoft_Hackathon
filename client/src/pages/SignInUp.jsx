@@ -47,6 +47,11 @@ function SignInUp() {
 
 		if (!email || !password) {
 			// console.log("Email and password are required or wrong email/password");
+			if (!email) {
+				alert("Email is required");
+			} else if (!password) {
+				alert("Password is required");
+			}
 			return;
 		}
 
@@ -58,7 +63,7 @@ function SignInUp() {
 				navigate("/dashboard");
 			})
 			.catch((error) => {
-				console.log("Error", error);
+				alert(error.message);
 			});
 	};
 	const LoginWithGoogle = (e) => {
