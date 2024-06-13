@@ -1,0 +1,50 @@
+.chat-container {
+	width: 600px;
+	margin: 0 auto;
+	border: 1px solid #ccc;
+	padding: 10px;
+	font-family: Arial, sans-serif;
+	position: relative;
+	z-index: 5;
+}
+.chat-box {
+	border: 1px solid #ccc;
+	height: 30rem;
+	overflow-y: scroll;
+	padding: 10px;
+	background-color: rgba(255,255,255,0.6);
+}
+.chat-bubble {
+	padding: 10px;
+	border-radius: 10px;
+	margin-bottom: 10px;
+	max-width: 60%;
+	word-wrap: break-word;
+}
+.chatbot-bubble {
+	background-color: #333;
+	color:  rgba(255,255,255,0.6);
+	align-self: flex-start;
+}
+.user-bubble {
+	background-color: #ccc;
+	color: #000;
+	align-self: flex-end;
+	margin-left: auto;
+}
+.button-container {
+	margin-top: 10px;
+}
+.chat-button {
+	margin-top: 10px;
+	padding: 5px 10px;
+}
+.chat-input {
+	width: 100%;
+	padding: 5px;
+}
+#upload-section {
+	background-color: rgba(255,255,255,0.6); /* Same color as chatbox */
+	padding: 10px; /* Added padding for spacing */
+	border: 1px solid #ccc;
+}

@@ -4,6 +4,8 @@ import SignInUp from "./pages/SignInUp";
 import Profile from "./pages/Profile";
 import About from "./pages/About";
 import Diagnostic from "./pages/Diagnostic";
+import Scanning from "./pages/Scanning";
+import Prescription from "./pages/Prescription";
 
 export default function App() {
 	return (
@@ -32,6 +34,14 @@ export default function App() {
 				<Route
 					path='/diagnostic'
 					element={<Diagnostic />}
+				/>
+				<Route
+					path='/scan'
+					element={<Scanning />}
+				/>
+				<Route
+					path='/presc'
+					element={<Prescription />}
 				/>
 			</Routes>
 		</BrowserRouter>

@@ -18,7 +18,17 @@ export default function Diagnostic() {
 		"Symptom 4",
 		"Symptom 5",
 	]);
-
+	const LogOut = () => {
+		const auth = getAuth();
+		localStorage.removeItem("token");
+		signOut(auth)
+			.then(() => {
+				navigate("/sign");
+			})
+			.catch((error) => {
+				console.log("Error", error);
+			});
+	};
 	return (
 		<>
 			<div className='div_a diag_div_a'>
@@ -31,6 +41,46 @@ export default function Diagnostic() {
 						src={videobg}
 					/>
 				</div>
+				<nav className='fixed top-0 w-full z-50 bg-neutral-content opacity-75'>
+					<div className='navbar'>
+						<div className='flex-1'>
+							<a
+								className='btn btn-ghost text-xl'
+								onClick={() => navigate("/dashboard")}>
+								Home
+							</a>
+							<a
+								className='btn btn-ghost text'
+								onClick={() => navigate("/diagnostic")}>
+								Detection{" "}
+							</a>
+							<a
+								className='btn btn-ghost text'
+								onClick={() => navigate("/scan")}>
+								Scanning
+							</a>
+							<a
+								className='btn btn-ghost text'
+								onClick={() => navigate("/presc")}>
+								Prescription Upload
+							</a>
+						</div>
+						<div className='flex-none'>
+							<ul className='menu menu-horizontal px-1'>
+								<li>
+									<a>Link</a>
+								</li>
+								<li>
+									<button
+										className='button_a'
+										onClick={LogOut}>
+										Log-out
+									</button>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</nav>
 				<form className='formContainer'>
 					{symptoms.map((symptom, index) => (
 						<div key={index}>

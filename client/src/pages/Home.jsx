@@ -70,10 +70,26 @@ export default function Home() {
 			<nav className='fixed top-0 w-full z-50 bg-neutral-content opacity-75'>
 				<div className='navbar'>
 					<div className='flex-1'>
-						<a className='btn btn-ghost text-xl'>Home</a>
-						<a className='btn btn-ghost text'>Detection </a>
-						<a className='btn btn-ghost text'>Scanning</a>
-						<a className='btn btn-ghost text'>Prescription Upload</a>
+						<a
+							className='btn btn-ghost text-xl'
+							onClick={() => navigate("/dashboard")}>
+							Home
+						</a>
+						<a
+							className='btn btn-ghost text'
+							onClick={() => navigate("/diagnostic")}>
+							Detection{" "}
+						</a>
+						<a
+							className='btn btn-ghost text'
+							onClick={() => navigate("/scan")}>
+							Scanning
+						</a>
+						<a
+							className='btn btn-ghost text'
+							onClick={() => navigate("/presc")}>
+							Prescription Upload
+						</a>
 					</div>
 					<div className='flex-none'>
 						<ul className='menu menu-horizontal px-1'>
@@ -107,7 +123,9 @@ export default function Home() {
 			<div
 				id='cards'
 				className='card-container'>
-				<div className='card'>
+				<div
+					className='card'
+					onClick={() => navigate("/diagnostic")}>
 					<div className='imgBx'>
 						<img
 							src={diagImage}
@@ -125,7 +143,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className='card'>
+				<div
+					className='card'
+					onClick={() => navigate("/scan")}>
 					<div className='imgBx'>
 						<img
 							src={scanImage}
@@ -143,7 +163,9 @@ export default function Home() {
 					</div>
 				</div>
 
-				<div className='card'>
+				<div
+					className='card'
+					onClick={() => navigate("/presc")}>
 					<div className='imgBx'>
 						<img
 							src={prescImage}
