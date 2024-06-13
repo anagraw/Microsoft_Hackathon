@@ -1,5 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import videobg from "../assets/vid.mp4";
 import "./ScanningStyle.css";

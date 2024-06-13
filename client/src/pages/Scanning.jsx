@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import videobg from "../assets/vid.mp4";
 import "./ScanningStyle.css";
+import { getAuth, signOut } from "firebase/auth";
+
 
 export default function Scanning() {
 	const navigate = useNavigate();
