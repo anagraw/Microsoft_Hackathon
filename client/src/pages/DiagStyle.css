@@ -1,55 +1,52 @@
-.formContainer{
-    z-index: 4;
-    position: relative;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
-    height: 10rem;
-    width: 90vw;
-    background-color: rgb(255, 255, 255,0.65);
-    border-radius: 2rem;
-    transform: translateY(-80%);
-}
-.cust_btn
-{
-    background: var(--grad-clr1);
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 1rem;
-    width: 8rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: 0.3s ease-in-out;
-    position: relative;
-    transform: translateY(-200%);
-}
-.diag_div_a
-{
+.diag_div_a {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-}
-.diag_symp_a
-{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
 }
-.diag_result_a
-{
-    height: 3rem;
-    width: 80vw;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 1rem;
-    position: relative;
+#container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+}
+#chatbox {
+    width: 400px;
+    height: 600px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: scroll;
+    background-color: #f5f5f5; 
+}
+#symptomList {
+    width: 250px;
+    height: 600px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    overflow-y: scroll;
+    margin-left: 10px;
+    background-color: #f5f5f5;
+}
+.symptom {
+    padding: 5px;
+    margin: 2px;
+    border: 1px solid #ccc;
+    cursor: grab;
+}
+.hidden {
+    display: none;
+}
+.chat-message {
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 10px;
+    max-width: 80%;
+    word-wrap: break-word;
+}
+.chatbot-bubble{
+    background-color: #333;
+    color: white;
+    align-self: flex-start;
+}
+.user-bubble {
+    background-color: #ccc;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
 }
