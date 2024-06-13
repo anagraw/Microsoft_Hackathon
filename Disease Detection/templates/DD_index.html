@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+    <title>Chatbot with X-ray Image Upload</title>
+    <style>
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+        .chat-container {
+            width: 600px;
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            position: relative;
+            z-index: 1;
+        }
+        .chat-box {
+            border: 1px solid #ccc;
+            height: 600px;
+            overflow-y: scroll;
+            padding: 10px;
+            background-color: #f5f5f5;
+        }
+        .chat-bubble {
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            max-width: 60%;
+            word-wrap: break-word;
+        }
+        .chatbot-bubble {
+            background-color: #333;
+            color: #fff;
+            align-self: flex-start;
+        }
+        .user-bubble {
+            background-color: #ccc;
+            color: #000;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+        .button-container {
+            margin-top: 10px;
+        }
+        .chat-button {
+            margin-top: 10px;
+            padding: 5px 10px;
+        }
+        .chat-input {
+            width: 100%;
+            padding: 5px;
+        }
+        #upload-section {
+            display: none;
+            background-color: #f5f5f5; /* Same color as chatbox */
+            padding: 10px; /* Added padding for spacing */
+            border: 1px solid #ccc; 
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='brain4.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="chat-bubble chatbot-bubble">Chatbot: Hi there!</div>
+            <div class="chat-bubble chatbot-bubble">Chatbot: Do you have an X-Ray scan of your chest available?</div>
+            <div class="button-container">
+                <button onclick="userResponse('yes')">Yes</button>
+                <button onclick="userResponse('no')">No</button>
+            </div>
+        </div>
+        <div id="upload-section">
+            <form id="upload-form" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" class="chat-input">
+                <button type="submit" class="chat-button">Upload</button>
+            </form>
+        </div>
+    </div>
+    <script>
+        function disableButtons(buttons) {
+            buttons.forEach(button => button.disabled = true);
+        }
+
+        function userResponse(response) {
+            const chatBox = document.getElementById('chat-box');
+            chatBox.innerHTML += `<div class="chat-bubble user-bubble">You: ${response}</div>`;
+            
+            const buttons = document.querySelectorAll('.button-container button');
+            disableButtons(buttons);
+            
+            if (response === 'yes') {
+                document.getElementById('upload-section').style.display = 'block';
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: Please upload your X-Ray scan.</div>`;
+            } else if (response === 'no') {
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: Okay, have a nice day!</div>`;
+            } else if (response === 'restart') {
+                chatBox.innerHTML = `<div class="chat-bubble chatbot-bubble">Chatbot: Hi there!</div>
+                                     <div class="chat-bubble chatbot-bubble">Chatbot: Do you have an X-Ray scan of your chest available?</div>
+                                     <div class="button-container">
+                                         <button onclick="userResponse('yes')">Yes</button>
+                                         <button onclick="userResponse('no')">No</button>
+                                     </div>`;
+                document.getElementById('upload-section').style.display = 'none';
+            } else if (response === 'exit') {
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: Goodbye!</div>`;
+            }
+        }
+
+        document.getElementById('upload-form').onsubmit = async function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const response = await fetch('/upload', {
+                method: 'POST',
+                body: formData
+            });
+            const result = await response.json();
+            const chatBox = document.getElementById('chat-box');
+            if (result.error) {
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: ${result.error}</div>`;
+            } else {
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: The predicted class is ${result.predicted_class}</div>`;
+                chatBox.innerHTML += `<div class="chat-bubble chatbot-bubble">Chatbot: Do you want to restart or exit?</div>
+                                      <div class="button-container">
+                                          <button onclick="userResponse('restart')">Restart</button>
+                                          <button onclick="userResponse('exit')">Exit</button>
+                                      </div>`;
+            }
+        };
+    </script>
+</body>
+</html>

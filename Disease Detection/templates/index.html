@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Prediction Chatbot</title>
+    <style>
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #container {
+            display: flex;
+        }
+        #chatbox {
+            width: 400px;
+            height: 600px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            background-color: #f5f5f5; 
+        }
+        #symptomList {
+            width: 250px;
+            height: 600px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            overflow-y: scroll;
+            margin-left: 10px;
+            background-color: #f5f5f5;
+        }
+        .symptom {
+            padding: 5px;
+            margin: 2px;
+            border: 1px solid #ccc;
+            cursor: grab;
+        }
+        .hidden {
+            display: none;
+        }
+        .chat-message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 10px;
+            max-width: 80%;
+            word-wrap: break-word;
+        }
+        .chatbot-bubble{
+            background-color: #333;
+            color: white;
+            align-self: flex-start;
+        }
+        .user-bubble {
+            background-color: #ccc;
+            color: white;
+            align-self: flex-end;
+            margin-left: auto;
+        }
+    </style>
+    <script>
+        let symptomCount = 0;
+        let symptoms = [];
+        let predicting = true;
+
+        function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            let data = ev.dataTransfer.getData("text");
+            let symptom = document.getElementById(data).textContent;
+            
+            if (predicting) {
+                symptoms.push(symptom);
+                symptomCount++;
+                addUserMessage(symptom);
+                if (symptomCount < 5) {
+                    addBotMessage('Please drag and drop symptom ' + (symptomCount + 1) + ' here:');
+                } else {
+                    fetchPrediction();
+                }
+            }
+        }
+
+        function addUserMessage(message) {
+            let chatbox = document.getElementById('chatbox');
+            let userMessageElement = document.createElement('div');
+            userMessageElement.textContent = 'You: ' + message;
+            userMessageElement.classList.add('chat-message', 'user-bubble');
+            chatbox.appendChild(userMessageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        function addBotMessage(message) {
+            let chatbox = document.getElementById('chatbox');
+            let botMessageElement = document.createElement('div');
+            botMessageElement.textContent = 'Bot: ' + message;
+            botMessageElement.classList.add('chat-message', 'chatbot-bubble');
+            chatbox.appendChild(botMessageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        async function fetchPrediction() {
+            const response = await fetch('/predict', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ symptoms: symptoms })
+            });
+            const data = await response.json();
+            addBotMessage('Predicted Disease: ' + data.prediction);
+            addBotMessage('Would you like to restart or exit?');
+            showRestartExitButtons();
+            predicting = false;
+        }
+
+        function showRestartExitButtons() {
+            document.getElementById('restartButton').classList.remove('hidden');
+            document.getElementById('exitButton').classList.remove('hidden');
+        }
+
+        function hideRestartExitButtons() {
+            document.getElementById('restartButton').classList.add('hidden');
+            document.getElementById('exitButton').classList.add('hidden');
+        }
+
+        function handleRestart() {
+            resetChat();
+            addBotMessage('Hi there! What are the top 5 symptoms you are feeling? Please drag and drop symptom 1 here:');
+        }
+
+        function handleExit() {
+            addBotMessage('Goodbye!');
+            hideRestartExitButtons();
+        }
+
+        function resetChat() {
+            symptomCount = 0;
+            symptoms = [];
+            predicting = true;
+            let chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML = '';
+            hideRestartExitButtons();
+        }
+
+        window.onload = function() {
+            addBotMessage('Hi there! What are the top 5 symptoms you are feeling? Please drag and drop symptom 1 here:');
+        }
+    </script>
+</head>
+<body>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="{{ url_for('static', filename='brain4.mp4') }}" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div id="container">
+        <div id="chatbox" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        <div id="symptomList">
+            {% for symptom in symptomOptions %}
+            <div id="symptom{{ loop.index }}" class="symptom" draggable="true" ondragstart="drag(event)">{{ symptom }}</div>
+            {% endfor %}
+        </div>
+    </div>
+    <div>
+        <button id="restartButton" class="hidden" onclick="handleRestart()">Restart</button>
+        <button id="exitButton" class="hidden" onclick="handleExit()">Exit</button>
+    </div>
+</body>
+</html>
