@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { getAuth, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import videobg from "../assets/vid.mp4";
 import "./ScanningStyle.css";
+import { getAuth, signOut } from "firebase/auth";
 
-export default function Prescription() {
+export default function Scanning() {
 	const navigate = useNavigate();
 	useEffect(() => {
 		const token = localStorage.getItem("token");
@@ -33,6 +33,7 @@ export default function Prescription() {
 		},
 	]);
 	const [userResponse, setUserResponse] = useState(null);
+	const [exitResp, setExitResp] = useState(true);
 
 	function handleResponse(response) {
 		setUserResponse(response);
@@ -43,6 +44,7 @@ export default function Prescription() {
 				...prevChat,
 				{ role: "chatbot", text: "Please upload an image of the medicine." },
 			]);
+			setExitResp(true);
 		} else if (response === "no") {
 			setChat((prevChat) => [
 				...prevChat,
@@ -63,8 +65,36 @@ export default function Prescription() {
 				{ role: "chatbot", text: "Goodbye!" },
 			]);
 		}
+		// setUserResponse(null);
 	}
 
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		const formData = new FormData(e.target);
+		console.log([...formData.entries()]);
+		const response = await fetch("http://127.0.0.1:5000/api/scan", {
+			method: "POST",
+			body: formData,
+		});
+		const result = await response.json();
+		console.log(result);
+		if (result.error) {
+			setChat((prevChat) => [
+				...prevChat,
+				{ role: "chatbot", text: `Chatbot: ${result.error}` },
+			]);
+		} else {
+			setChat((prevChat) => [
+				...prevChat,
+				{
+					role: "chatbot",
+					text: `Chatbot: The predicted medicine is ${result.predicted_class}`,
+				},
+				{ role: "chatbot", text: "Chatbot: Do you want to restart or exit?" },
+			]);
+			setExitResp(false);
+		}
+	};
 	return (
 		<>
 			<div className='div_a'>
@@ -117,7 +147,7 @@ export default function Prescription() {
 						</div>
 					</div>
 				</nav>
-				<div class='chat-container'>
+				<div className='chat-container'>
 					<div
 						className='chat-box'
 						id='chat-box'>
@@ -133,31 +163,42 @@ export default function Prescription() {
 							<button
 								onClick={() => handleResponse("yes")}
 								className='btn btn-outline'
-								disabled={userResponse !== null}>
+								disabled={
+									(userResponse === "yes" && exitResp === true) ||
+									userResponse === "no"
+								}>
 								Yes
 							</button>
 							<button
 								onClick={() => handleResponse("no")}
 								className='btn btn-outline'
-								disabled={userResponse !== null}>
+								disabled={
+									(userResponse === "yes" && exitResp === true) ||
+									userResponse === "no"
+								}>
 								No
 							</button>
 						</div>
 					</div>
 					{userResponse === "yes" && (
 						<div id='upload-section'>
-							<form id='upload-form'>
-								<input
-									type='file'
-									name='file'
-									className='chat-input button_a bg-slate-50'
-								/>
-								<button
-									type='submit'
-									className='chat-button btn btn-outline'>
-									Upload
-								</button>
-							</form>
+							{exitResp && (
+								<form
+									id='upload-form'
+									encType='multipart/form-data'
+									onSubmit={handleSubmit}>
+									<input
+										type='file'
+										name='file'
+										className='chat-input button_a bg-slate-50'
+									/>
+									<button
+										type='submit'
+										className='chat-button btn btn-outline'>
+										Upload
+									</button>
+								</form>
+							)}
 						</div>
 					)}
 					{userResponse === "no" && (
