@@ -24,6 +24,7 @@ This section should list any major frameworks/libraries used to bootstrap your p
 * [![tailwind][tailwind.cs]][React-url]
 * [![firebase][firebase.db]][firebase-url]
 * [![Flask][Flask.c]][Flask-url]
+* [![Python][Python.p]][Python-url]
 
 
 
@@ -38,3 +39,5 @@ This section should list any major frameworks/libraries used to bootstrap your p
 [firebase-url]: https://firebase.google.com/
 [Flask.c]: https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white
 [Flask-url]: https://flask.palletsprojects.com/en/3.0.x/
+[Python.p]: https://img.shields.io/badge/Python-14354C?style=for-the-badge&logo=python&logoColor=white
+[Python-url]: https://www.python.org/
