@@ -100,9 +100,6 @@ Below are the installation steps
    ```sh
    pip install -r requirements.txt
    ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 ### Running 
 
 Below are the steps to run the web-app
