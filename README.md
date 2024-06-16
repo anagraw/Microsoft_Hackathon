@@ -59,7 +59,7 @@ Below are the installation steps
    ```sh
    cd .\server\
    ```
-5. Clone the repo
+5. Install the package/library requirements
    ```sh
    pip install -r requirements.txt
    ```
