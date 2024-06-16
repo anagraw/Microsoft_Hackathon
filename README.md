@@ -39,7 +39,7 @@ Lastly, we also provide a handwriting-to-text option for the user, where the use
 and generates a text corresponding to the handwritten image. Enabling better legibility. 
 
 
-## Built Using
+## <ins>Built Using</ins> <br />
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
@@ -65,7 +65,7 @@ and generates a text corresponding to the handwritten image. Enabling better leg
 [Python-url]: https://www.python.org/
 
 <!-- GETTING STARTED -->
-## Getting Started
+## <ins>Getting Started</ins> <br />
 
 This is an example of how you may give instructions on setting up your project locally.
 To get a local copy up and running follow these simple example steps.
@@ -100,6 +100,9 @@ Below are the installation steps
    ```sh
    pip install -r requirements.txt
    ```
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
 ### Running 
 
 Below are the steps to run the web-app
