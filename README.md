@@ -122,4 +122,4 @@ Examples of files that can be used as input for testing Chest X-ray scans and Pr
 
 ## <ins>Video Demo of the Web-App</ins> <br /> 
 [![Video Thumbnail](https://img.youtube.com/vi/jLJHFSrbpQ4/0.jpg)](https://youtu.be/jLJHFSrbpQ4)
-https://youtu.be/jLJHFSrbpQ4
+
