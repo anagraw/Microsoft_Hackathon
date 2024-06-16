@@ -1,5 +1,24 @@
 # Microsoft_Hackathon
-AI Healthcare Bot 
+Healthcare Diagnosis Chatbot
+
+## <ins>Problem Statement</ins> <br />
+
+Build a chatbot capable of diagnosing common medical conditions based on user symptoms input. Utilize machine learning models trained on medical data to provide accurate suggestions and recommendations for further action.
+
+## <ins>About the Web-app and its Features</ins> <br />
+Our Healthcare Diagnosis Chatbot has 3 main features:
+
+### Disease Diagnosis
+Select up to 5 symptoms from a list of 43 using our drag-and-drop interface. Our KNN model predicts potential diseases based on your inputs. 
+Note: This prediction is based on user-provided data and should not replace professional medical advice. Always consult a healthcare provider for an accurate diagnosis.
+
+### Chest X-Ray Scan 
+Based on the chest X-Ray uploaded by the user, one of the 14 diseases () is predicted. This is achieved using a 3-layer CNN Architecture. 
+Note: This prediction is based on user-provided data and should not replace professional medical advice. Always consult a healthcare provider for an accurate diagnosis.
+
+### Prescription Scan 
+Lastly, we also provide a handwriting-to-text option for the user, where the user enters the picture of a hand-written image containing medicine names
+and generates a text corresponding to the handwritten image. Enabling better legibility. 
 
 
 ### Built With
