@@ -121,4 +121,5 @@ Both the client and server should be running parallelly
 Examples of files that can be used as input for testing Chest X-ray scans and Prescription scan are available in the test folder 
 
 ## <ins>Video Demo of the Web-App</ins> <br /> 
+[![Video Thumbnail](https://img.youtube.com/vi/jLJHFSrbpQ4/0.jpg)](https://youtu.be/jLJHFSrbpQ4)
 https://youtu.be/jLJHFSrbpQ4
