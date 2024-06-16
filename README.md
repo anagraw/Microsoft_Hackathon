@@ -55,7 +55,7 @@ Below are the installation steps
    npm install
    ```
 #### Server Directory 
-2. Redirect to the server directory
+4. Redirect to the server directory
    ```sh
    cd .\server\
    ```
