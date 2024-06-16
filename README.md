@@ -120,4 +120,5 @@ Both the client and server should be running parallelly
 #### Model Input Files Required for Running
 Examples of files that can be used as input for testing Chest X-ray scans and Prescription scan are available in the test folder 
 
-
+## <ins>Video Demo of the Web-App</ins> <br /> 
+https://youtu.be/jLJHFSrbpQ4
