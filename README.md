@@ -100,7 +100,7 @@ Below are the installation steps
    ```sh
    pip install -r requirements.txt
    ```
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 
 ### Running 
@@ -116,5 +116,8 @@ Both the client and server should be running parallelly
  ```sh
    python main.py
    ```
+
+#### Model Input Files Required for Running
+Examples of files that can be used as input for testing Chest X-ray scans and Prescription scan are available in the test folder 
 
 
