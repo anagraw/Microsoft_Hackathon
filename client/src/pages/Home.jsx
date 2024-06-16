@@ -112,12 +112,12 @@ export default function Home() {
 				<h1 className='text-sm uppercase tracking-widest mb-4'>
 					Healthcare Detection App
 				</h1>
-				<h2 className='text-5xl font-bold mb-2'>Healthcare Detection App</h2>
-				<h3 className='text-3xl mb-4'>Loren Ipsum</h3>
+				<h2 className='text-5xl font-bold mb-2'>Microsoft Hackathon</h2>
+				<h3 className='text-3xl mb-4'>All in One Health Companion</h3>
 				<a
 					href='#cards'
 					className='inline-block mt-8 text-white border border-white py-2 px-4 rounded-full'>
-					button
+					Features
 				</a>
 			</div>
 
@@ -136,10 +136,9 @@ export default function Home() {
 					<div className='content_01'>
 						<h2 className='text-xl font-bold'>Diagnostic</h2>
 						<p>
-							We use cookies to enable certain functions and tools on this
-							website, track resources and data used on this website, and
-							promote our products and services. We also share information about
-							your use of our website with our analytics partners.
+							Feeling Under the weather? Or do you think it is something serious?
+							Drag and Drop upto 5 symptoms, and we hope to tell you 	
+							what might be going wrong
 						</p>
 					</div>
 				</div>
@@ -156,10 +155,9 @@ export default function Home() {
 					<div className='content_01'>
 						<h2 className='text-xl font-bold'>Scanning</h2>
 						<p>
-							We use cookies to enable certain functions and tools on this
-							website, track resources and data used on this website, and
-							promote our products and services. We also share information about
-							your use of our website with our analytics partners.
+							Want to double check your diagnosis based on your 		
+							Chest X-Ray Scans? 
+							Upload your Chest X-Ray Scan, and know what's wrong!
 						</p>
 					</div>
 				</div>
@@ -176,10 +174,9 @@ export default function Home() {
 					<div className='content_01'>
 						<h2 className='text-xl font-bold'>Prescription Upload</h2>
 						<p>
-							We use cookies to enable certain functions and tools on this
-							website, track resources and data used on this website, and
-							promote our products and services. We also share information about
-							your use of our website with our analytics partners.
+							Can't read what the Doc wrote? 
+							Effortlessly scan handwritten prescriptions 
+							and convert them into digital text.
 						</p>
 					</div>
 				</div>
