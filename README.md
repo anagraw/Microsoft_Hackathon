@@ -14,22 +14,22 @@ Note: This prediction is based on user-provided data and should not replace prof
 
 ### Chest X-Ray Scan 
 Based on the chest X-Ray uploaded by the user, one of the 14 diseases 
-(abscess
-ards
-atelectasis
-atherosclerosis of the aorta
-cardiomegaly
-emphysema
-fracture
-hydropneumothorax
-hydrothorax
-pneumonia
-pneumosclerosis
-post-inflammatory changes
-post-traumatic ribs deformation
-sarcoidosis
-scoliosis
-tuberculosis
+(abscess,
+yards,
+atelectasis,
+atherosclerosis of the aorta,
+cardiomegaly,
+emphysema,
+fracture, 
+hydropneumothorax,
+hydrothorax,
+pneumonia,
+pneumosclerosis,
+post-inflammatory changes,
+post-traumatic ribs deformation,
+sarcoidosis,
+scoliosis,
+tuberculosis,
 venous congestion) 
 is predicted. This is achieved using a 3-layer CNN Architecture. 
 Note: This prediction is based on user-provided data and should not replace professional medical advice. Always consult a healthcare provider for an accurate diagnosis.
