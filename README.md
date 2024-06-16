@@ -21,7 +21,7 @@ Lastly, we also provide a handwriting-to-text option for the user, where the use
 and generates a text corresponding to the handwritten image. Enabling better legibility. 
 
 
-### Built With
+## Built Using
 
 * [![React][React.js]][React-url]
 * [![Bootstrap][Bootstrap.com]][Bootstrap-url]
