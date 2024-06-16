@@ -69,6 +69,7 @@ Below are the installation steps
 ### Running 
 
 Below are the steps to run the web-app
+Both the client and server should be running parallelly 
 #### Client Directory
   ```sh
    npm run dev
